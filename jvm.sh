@@ -58,7 +58,7 @@ __jvm_pomversion() {
 	test ! -s "$pom" && return 1
 	tag="$(grep -Eo "$POM_REGEX" "$pom")"
 	test -z "$tag" && return 1
-	if [[ $tag == *"1."* ]]; then
+	if [-z "${tag##*1.*}"]; then
 	  echo "$tag" |
 		cut -f2 -d'>' |
 		cut -f2 -d'.' |
