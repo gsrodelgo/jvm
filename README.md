@@ -78,7 +78,7 @@ For those using Antigen, Antibody or whatever, just bundle `caarlos0/jvm`, as
 in:
 
 ```console
-$ antibody bundle caarlos0/jvm
+$ antibody bundle gsrodelgo/jvm
 ```
 
 And it should all work out of the box.
