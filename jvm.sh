@@ -1,8 +1,8 @@
 #!/bin/sh
 # RegExp used to find the java version in a pom file.
-POM_REGEX="<(java.version|maven.compiler.source|source)>[0-9]+</.*>"
+POM_REGEX="<(java.version|maven.compiler.source|source)>1\.[0-9]+|[0-9]+</.*>"
 # RegExp used to find the java version in a build.gradle file.
-GRADLE_REGEX="(sourceCompatibility|targetCompatibility) ?= ?[0-9]+"
+GRADLE_REGEX="(sourceCompatibility|targetCompatibility) ?= ?1\.[0-9]+|[0-9]+"
 
 # finds the java home for the given version
 __jvm_javahome() {
@@ -58,9 +58,16 @@ __jvm_pomversion() {
 	test ! -s "$pom" && return 1
 	tag="$(grep -Eo "$POM_REGEX" "$pom")"
 	test -z "$tag" && return 1
-	echo "$tag" |
+	if [[ $tag == *"1."* ]]; then
+	  echo "$tag" |
+		cut -f2 -d'>' |
+		cut -f2 -d'.' |
+		cut -f1 -d'<'
+	else 
+	  echo "$tag" |
 		cut -f2 -d'>' |
 		cut -f1 -d'<'
+	fi	
 }
 
 # tries to find the java version using regex inside a build.gradle file.
