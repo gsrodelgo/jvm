@@ -2,7 +2,7 @@
 
 > The _"Java Version Manager"_
 
-UPDATED TO WORK WITH JAVA 11
+UPDATED TO WORK WITH OPENJDK AND VERSIONS WITHOUT 1.X FORMAT
 
 Automatically change `JAVA_HOME` and `PATH` based on current directory
 `.java-version`, `pom.xml` and `build.gradle` files.
@@ -78,7 +78,7 @@ For those using Antigen, Antibody or whatever, just bundle `caarlos0/jvm`, as
 in:
 
 ```console
-$ antibody bundle gsrodelgo/jvm
+$ antigen bundle gsrodelgo/jvm
 ```
 
 And it should all work out of the box.
