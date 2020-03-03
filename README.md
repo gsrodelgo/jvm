@@ -2,6 +2,8 @@
 
 > The _"Java Version Manager"_
 
+UPDATED TO WORK WITH JAVA 11
+
 Automatically change `JAVA_HOME` and `PATH` based on current directory
 `.java-version`, `pom.xml` and `build.gradle` files.
 
@@ -18,7 +20,7 @@ It's pretty common to have to work in Java 6, 7 and 8 projects, and changing
 ### Usage
 
 ```console
-$ git clone https://github.com/caarlos0/jvm.git ~/.jvm
+$ git clone https://github.com/gsrodelgo/jvm.git ~/.jvm
 $ echo ".java-version" >> ~/.gitignore
 
 # for bash
